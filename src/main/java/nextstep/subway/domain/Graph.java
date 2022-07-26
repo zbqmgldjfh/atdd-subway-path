@@ -28,14 +28,9 @@ public class Graph {
         initGraph(lines);
     }
 
-    public List<Station> getShortestPath(Station startStation, Station arrivalStation) {
+    public PathResult getShortestPathResult(Station startStation, Station arrivalStation) {
         GraphPath path = createGraphPath(startStation, arrivalStation);
-        return path.getVertexList();
-    }
-
-    public int getShortestDistance(Station startStation, Station arrivalStation) {
-        GraphPath path = createGraphPath(startStation, arrivalStation);
-        return (int) path.getWeight();
+        return new PathResult(path.getVertexList(), (int) path.getWeight());
     }
 
     private void initGraph(List<Line> lines) {

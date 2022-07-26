@@ -73,7 +73,7 @@ public class GraphTest {
         Graph graph = new Graph(List.of(이호선, 삼호선, 신분당선));
 
         // when
-        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPath(출발역, 도착역);
+        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPathResult(출발역, 도착역);
 
         // then
         assertThatThrownBy(actual)
@@ -89,7 +89,7 @@ public class GraphTest {
         Graph graph = new Graph(List.of(이호선, 삼호선, 신분당선));
 
         // when
-        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestDistance(출발역, 도착역);
+        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPathResult(출발역, 도착역);
 
         // then
         assertThatThrownBy(actual)
@@ -117,7 +117,7 @@ public class GraphTest {
         Graph graph = new Graph(List.of(일호선, 이호선, 삼호선, 신분당선));
 
         // when
-        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPath(강남역, 시청역);
+        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPathResult(강남역, 시청역);
 
         // then
         assertThatThrownBy(actual)
@@ -132,7 +132,7 @@ public class GraphTest {
         Graph graph = new Graph(List.of(이호선, 삼호선, 신분당선));
 
         // when
-        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPath(강남역, 강남역);
+        ThrowableAssert.ThrowingCallable actual = () -> graph.getShortestPathResult(강남역, 강남역);
 
         // then
         assertThatThrownBy(actual)
@@ -149,8 +149,8 @@ public class GraphTest {
 
         // then
         assertAll(
-                () -> assertThat(graph.getShortestPath(출발역, 도착역)).extracting("name").isEqualTo(nameList),
-                () -> assertThat(graph.getShortestDistance(출발역, 도착역)).isEqualTo(distance)
+                () -> assertThat(graph.getShortestPathResult(출발역, 도착역).getPath()).extracting("name").isEqualTo(nameList),
+                () -> assertThat(graph.getShortestPathResult(출발역, 도착역).getDistance()).isEqualTo(distance)
         );
     }
 
