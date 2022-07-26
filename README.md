@@ -2,6 +2,13 @@
 
 [ATDD 강의](https://edu.nextstep.camp/c/R89PYi5H) 실습을 위한 지하철 노선도 애플리케이션
 
+## Step4 PR 수정 TODO list
+
+- [ ] Sections의 deleteSection 메서드 내부의 추상화 수준 동일하게 만들기
+- [ ] 예외 처리에 대한 고민하기, 장단점 생각하기
+- [ ] Graph 결과 반환 객체 만들기
+- [ ] 테스트 케이스 추가하기
+
 ## Step4 TODO List
 
 - [x] 인수 조건 도출
